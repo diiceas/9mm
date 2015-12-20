@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    @RenderSection("Meta", required: false)
+    <title>
+        Девятый миллиметр @RenderSection("Title", required: false)
+    </title>
+    <link rel="stylesheet" href="/Content/css/main.css" type="text/css" />
+    @RenderSection("Styles", required: false)
+    @RenderSection("Scripts", required: false)
+</head>
+<body>
+    <div id="header" class="clearfix">
+        <div class="logo-top"></div>
+        <div id="nav">
+            <ul>
+                <li @(((ViewBag.pageName != null && ((string)ViewBag.pageName).Equals("Main"))) ? "id=current" : string.Empty)><a href="/home">Главная</a></li>
+                <li @(((ViewBag.pageName != null && ((string)ViewBag.pageName).Equals("News"))) ? "id=current" : string.Empty)><a href="/news">Новости</a></li>
+                <li @(((ViewBag.pageName != null && ((string)ViewBag.pageName).Equals("Audio"))) ? "id=current" : string.Empty)><a href="/audio">Треки</a></li>
+                <li @(((ViewBag.pageName != null && ((string)ViewBag.pageName).Equals("Video"))) ? "id=current" : string.Empty)><a href="/video"><div>Видео</div></a></li>
+                <li @(((ViewBag.pageName != null && ((string)ViewBag.pageName).Equals("Gallery"))) ? "id=current" : string.Empty)><a href="/gallery">Фото</a></li>
+                <li @(((ViewBag.pageName != null && ((string)ViewBag.pageName).Equals("Info"))) ? "id=current" : string.Empty)><a href="/info">Инфо</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="content">
+        <div class="frame-border border-left"></div>
+        <div class="frame-border border-top"></div>
+        @RenderBody()
+    </div>
+    <div id="footer">
+        <div class="footer-inner">
+            <a href="/home">главная</a>
+            <a href="/news">новости</a>
+            <a href="/audio">треки</a>
+            <a href="/video">видео</a>
+            <a href="/gallery">фото</a>
+            <a href="/info">инфо</a>
+            <span style=" color: black">© Девятый миллиметр 2014</span>
+            <a target="blank" href="http://vkontakte.ru/ninthmillimeter">vk</a>
+            <a href="mailto:ninthmillimeter@gmail.com">почта</a>
+        </div>
+        <div class="logo-bottom"><div></div></div>
+    </div>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-53061003-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>
